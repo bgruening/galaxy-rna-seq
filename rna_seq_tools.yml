@@ -39,12 +39,25 @@
 api_key: admin
 galaxy_instance: http://localhost:8080
 tools:
+- name: trim_galore
+  owner: bgruening
+  tool_panel_section_label: "Quality Control"
+  tool_shed_url: https://toolshed.g2.bx.psu.edu
+  install_resolver_dependencies: True
+
+- name: suite_samtools_1_2
+  owner: devteam
+  tool_panel_section_label: "SAM Tools"
+  tool_shed_url: https://toolshed.g2.bx.psu.edu
+  install_resolver_dependencies: True
+
 - name: deseq2
   owner: iuc
   tool_panel_section_label: "RNA-Seq"
   tool_shed_url: https://toolshed.g2.bx.psu.edu
   revisions:
   - 89bbd1dbf48d
+  - 8702e49e68b6
 
 - name: htseq_count
   owner: lparsons
@@ -59,3 +72,17 @@ tools:
   tool_panel_section_label: "RNA-Seq"
   tool_shed_url: https://toolshed.g2.bx.psu.edu
 
+- name: tophat2
+  owner: devteam
+  tool_panel_section_label: "RNA-Seq"
+  tool_shed_url: https://toolshed.g2.bx.psu.edu
+
+- name: trinity
+  owner: iuc
+  tool_panel_section_label: "RNA-Seq"
+  tool_shed_url: https://toolshed.g2.bx.psu.edu
+
+- name: sailfish
+  owner: bgruening
+  tool_panel_section_label: "RNA-Seq"
+  tool_shed_url: https://toolshed.g2.bx.psu.edu
