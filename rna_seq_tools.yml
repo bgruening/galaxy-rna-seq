@@ -66,8 +66,9 @@ tools:
   tool_panel_section_label: "RNA-Seq"
   tool_shed_url: https://toolshed.g2.bx.psu.edu
   install_resolver_dependencies: True
+  install_tool_dependencies: False
   revisions:
-  - 6f920f33c5eb
+  - 55ed198f2c1c
 
 - name: all_cufflinks_tool_suite
   owner: devteam
