@@ -18,6 +18,7 @@ before_install:
   - travis_wait 45 make docker_build
   - make docker_run
   - sleep 500
+  - df -h $HOME
 
 install:
   - make install
