@@ -19,6 +19,7 @@ before_install:
   - make docker_run
   - sleep 500
   - df -h $HOME
+  - docker images
 
 install:
   - make install
