@@ -17,10 +17,7 @@ before_install:
   - make docker_install
   - travis_wait 45 make docker_build
   - make docker_run
-  - sleep 500
-  - df -h $HOME
-  - du -h $TRAVIS_BUILD_DIR
-  - docker images
+  - sleep 30
 
 install:
   - make install
