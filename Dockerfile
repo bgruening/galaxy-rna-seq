@@ -1,11 +1,10 @@
 # Galaxy - RNA-Seq
 
-FROM bgruening/galaxy-ngs-preprocessing
+FROM bgruening/galaxy-ngs-preprocessing:16.10
 
 MAINTAINER Björn A. Grüning, bjoern.gruening@gmail.com
 
 ENV GALAXY_CONFIG_BRAND="RNA-Seq" \
-    GALAXY_CONFIG_ENABLE_BETA_TOOL_COMMAND_ISOLATION=True \
     GALAXY_CONFIG_CONDA_AUTO_INSTALL=True \
     GALAXY_CONFIG_CONDA_AUTO_INIT=True
 
