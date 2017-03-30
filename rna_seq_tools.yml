@@ -85,6 +85,20 @@ tools:
   install_resolver_dependencies: True
   install_tool_dependencies: False
 
+- name: data_manager_hisat2_index_builder
+  owner: iuc
+  tool_panel_section_label: "RNA-Seq"
+  tool_shed_url: https://toolshed.g2.bx.psu.edu
+  install_resolver_dependencies: True
+  install_tool_dependencies: False
+
+- name: hisat2
+  owner: iuc
+  tool_panel_section_label: "RNA-Seq"
+  tool_shed_url: https://toolshed.g2.bx.psu.edu
+  install_resolver_dependencies: True
+  install_tool_dependencies: False
+
 - name: trinity
   owner: iuc
   tool_panel_section_label: "RNA-Seq"
