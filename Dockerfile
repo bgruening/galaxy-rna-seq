@@ -1,12 +1,10 @@
 # Galaxy - RNA-Seq
 
-FROM bgruening/galaxy-ngs-preprocessing:17.01
+FROM bgruening/galaxy-ngs-preprocessing:17.05
 
 MAINTAINER Björn A. Grüning, bjoern.gruening@gmail.com
 
-ENV GALAXY_CONFIG_BRAND="RNA-Seq" \
-    GALAXY_CONFIG_CONDA_AUTO_INSTALL=True \
-    GALAXY_CONFIG_CONDA_AUTO_INIT=True
+ENV GALAXY_CONFIG_BRAND="RNA-Seq"
 
 # Install RNA seq tools
 ADD rna_seq_tools.yml $GALAXY_ROOT/tools.yaml
