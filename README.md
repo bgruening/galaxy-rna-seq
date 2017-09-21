@@ -19,6 +19,8 @@ Galaxy RNA-Seq Docker Image
  * [SAM tools](https://sourceforge.net/projects/samtools/)
  * [Trinity](https://github.com/trinityrnaseq/trinityrnaseq/wiki)
  * [Sailfish](http://www.cs.cmu.edu/~ckingsf/software/sailfish/)
+ * [STAR](https://github.com/alexdobin/STAR)
+ * [STAR-fusion](https://github.com/STAR-Fusion/STAR-Fusion)
 
 # Requirements
 
