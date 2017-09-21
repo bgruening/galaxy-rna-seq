@@ -19,6 +19,8 @@ Galaxy RNA-Seq Docker Image
  * [SAM tools](https://sourceforge.net/projects/samtools/)
  * [Trinity](https://github.com/trinityrnaseq/trinityrnaseq/wiki)
  * [Sailfish](http://www.cs.cmu.edu/~ckingsf/software/sailfish/)
+ * [STAR](https://github.com/alexdobin/STAR)
+ * [STAR-fusion](https://github.com/STAR-Fusion/STAR-Fusion)
 
 # Requirements
 
@@ -36,7 +38,7 @@ docker run -d -p 8080:80 bgruening/galaxy-rna-seq
 For more details about this command line or specific usage, please consult the
 [`README`](https://github.com/bgruening/docker-galaxy-stable/blob/master/README.md) of the main Galaxy Docker image, on which the current image is based.
 
-# Contributers
+# Contributors
 
 - Bjoern Gruening
 - Bérénice Batut
