@@ -38,7 +38,7 @@ docker run -d -p 8080:80 bgruening/galaxy-rna-seq
 For more details about this command line or specific usage, please consult the
 [`README`](https://github.com/bgruening/docker-galaxy-stable/blob/master/README.md) of the main Galaxy Docker image, on which the current image is based.
 
-# Contributers
+# Contributors
 
 - Bjoern Gruening
 - Bérénice Batut
