@@ -112,14 +112,6 @@ tools:
   owner: lparsons
   tool_panel_section_label: "RNA-Seq"
 
-- name: all_cufflinks_tool_suite
-  owner: devteam
-  tool_panel_section_label: "RNA-Seq"
-
-- name: tophat2
-  owner: devteam
-  tool_panel_section_label: "RNA-Seq"
-
 - name: data_manager_hisat2_index_builder
   owner: iuc
   tool_panel_section_label: "RNA-Seq"
