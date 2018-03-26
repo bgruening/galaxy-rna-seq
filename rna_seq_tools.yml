@@ -108,10 +108,6 @@ tools:
   owner: iuc
   tool_panel_section_label: "RNA-Seq"
 
-- name: htseq_count
-  owner: lparsons
-  tool_panel_section_label: "RNA-Seq"
-
 - name: data_manager_hisat2_index_builder
   owner: iuc
   tool_panel_section_label: "RNA-Seq"
