@@ -7,7 +7,7 @@ jobs:
       - run:
           name: Compile Docker image
           command: |
-               wget https://raw.githubusercontent.com/bgruening/galaxy-flavor-testing/master/Makefile
+               wget https://raw.githubusercontent.com/galaxyproject/galaxy-flavor-testing/18.01/Makefile
                make docker_install
                make docker_build
                make docker_run
@@ -29,4 +29,5 @@ jobs:
           command: |
             set -x
             sh +x -c 'echo $QUAY_TOKEN' | docker login -u=$QUAY_USERNAME --password-stdin quay.io
+            docker tag galaxy-docker/test quay.io/bgruening/galaxy-rna-seq:circle 
             docker push quay.io/bgruening/galaxy-rna-seq:circle
