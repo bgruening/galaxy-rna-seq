@@ -1,0 +1,25 @@
+version: 2
+jobs:
+  build:
+    machine: true
+    steps:
+      - checkout
+      - run:
+          name: Compile Docker image
+          command: |
+               wget https://raw.githubusercontent.com/bgruening/galaxy-flavor-testing/master/Makefile
+               make docker_install
+               make docker_build
+               make docker_run
+               sleep 60
+      - run:
+          name: Install test environment
+          command: |
+               make install
+      - run:
+          name: Run tests 
+          command: |   
+               make test_api
+               make test_ftp
+               make test_bioblend
+
