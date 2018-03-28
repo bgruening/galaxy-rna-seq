@@ -24,4 +24,9 @@ jobs:
                make test_bioblend
           environment:
                TOX_ENV: py27
-
+      - run:
+          name: push image
+          command: |
+            set -x
+            sh +x -c 'echo $QUAY_TOKEN' | docker login -u=$QUAY_USERNAME --password-stdin quay.io
+            docker push quay.io/bgruening/galaxy-rna-seq:circle
