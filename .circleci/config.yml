@@ -21,7 +21,7 @@ jobs:
           command: |   
                make test_api
                make test_ftp
-               make test_bioblend
+               #make test_bioblend
           environment:
                TOX_ENV: py27
       - run:
