@@ -21,7 +21,7 @@ jobs:
           command: |   
                make test_api
                make test_ftp
-               #make test_bioblend
+               make test_bioblend
           environment:
                TOX_ENV: py27
       - run:
@@ -35,12 +35,6 @@ jobs:
             fi
 workflows:
   version: 2
-  branch-build:
-    jobs:
-      - build:
-          filters:
-            tags:
-              ignore: /^.*/
   tagged-build:
     jobs:
       - build:
