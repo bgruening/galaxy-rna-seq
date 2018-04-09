@@ -1,4 +1,3 @@
-[![Build Status](https://travis-ci.org/bgruening/galaxy-rna-seq.svg?branch=master)](https://travis-ci.org/bgruening/galaxy-rna-seq)
 [![CircleCI](https://circleci.com/gh/bgruening/galaxy-rna-seq/tree/master.svg?style=svg)](https://circleci.com/gh/bgruening/galaxy-rna-seq/tree/master)
 [![Docker Repository on Quay](https://quay.io/repository/bgruening/galaxy-rna-seq/status "Docker Repository on Quay")](https://quay.io/repository/bgruening/galaxy-rna-seq)
 [![Gitter](https://badges.gitter.im/bgruening/docker-galaxy-stable.svg)](https://gitter.im/bgruening/docker-galaxy-stable?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
