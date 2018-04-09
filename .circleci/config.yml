@@ -24,29 +24,12 @@ jobs:
                #make test_bioblend
           environment:
                TOX_ENV: py27
-  deploy:
-    machine: true
-    steps:
-      - checkout
       - run:
           name: push image
           command: |
             set -x
-            sh +x -c 'echo $QUAY_TOKEN' | docker login -u=$QUAY_USERNAME --password-stdin quay.io
-            docker tag galaxy-docker/test quay.io/bgruening/galaxy-rna-seq:${CIRCLE_TAG:-$CIRCLE_BRANCH}
-            docker push quay.io/bgruening/galaxy-rna-seq:${CIRCLE_TAG:-$CIRCLE_BRANCH}
-
-workflows:
-  version: 2
-  build-and-deploy:
-    jobs:
-      - build
-      - deploy:
-          requires:
-            - build
-          filters:
-            tags:
-              only: /.*/
-            branches:
-              only: master
-
+            if [ -z "$CIRCLE_TAG" ] && [ "$CIRCLE_BRANCH" = master ]; then
+                sh +x -c 'echo $QUAY_TOKEN' | docker login -u=$QUAY_USERNAME --password-stdin quay.io
+                docker tag galaxy-docker/test quay.io/bgruening/galaxy-rna-seq:${CIRCLE_TAG:-$CIRCLE_BRANCH}
+                docker push quay.io/bgruening/galaxy-rna-seq:${CIRCLE_TAG:-$CIRCLE_BRANCH}
+            fi
