@@ -33,8 +33,8 @@ jobs:
           command: |
             set -x
             sh +x -c 'echo $QUAY_TOKEN' | docker login -u=$QUAY_USERNAME --password-stdin quay.io
-            docker tag galaxy-docker/test quay.io/bgruening/galaxy-rna-seq:circle 
-            docker push quay.io/bgruening/galaxy-rna-seq:circle
+            docker tag galaxy-docker/test quay.io/bgruening/galaxy-rna-seq:${CIRCLE_TAG:-$CIRCLE_BRANCH}
+            docker push quay.io/bgruening/galaxy-rna-seq:${CIRCLE_TAG:-$CIRCLE_BRANCH}
 
 workflows:
   version: 2
@@ -45,6 +45,8 @@ workflows:
           requires:
             - build
           filters:
+            tags:
+              only: /.*/
             branches:
               only: master
 
