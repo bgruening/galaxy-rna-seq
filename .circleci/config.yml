@@ -35,7 +35,7 @@ jobs:
             fi
 workflows:
   version: 2
-  un-tagged-build:
+  branch-build:
     jobs:
       - build:
           filters:
@@ -46,7 +46,7 @@ workflows:
       - build:
           filters:
             branches:
-              ignore: /.*/
+              only: /.*/
             tags:
-              only: /v.*/
+              only: /.*/
 
