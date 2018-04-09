@@ -33,3 +33,20 @@ jobs:
                 docker tag galaxy-docker/test quay.io/bgruening/galaxy-rna-seq:${CIRCLE_TAG:-$CIRCLE_BRANCH}
                 docker push quay.io/bgruening/galaxy-rna-seq:${CIRCLE_TAG:-$CIRCLE_BRANCH}
             fi
+workflows:
+  version: 2
+  un-tagged-build:
+    jobs:
+      - build:
+          filters:
+            tags:
+              ignore: /^.*/
+  tagged-build:
+    jobs:
+      - build:
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /v.*/
+
