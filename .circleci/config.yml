@@ -24,6 +24,10 @@ jobs:
                #make test_bioblend
           environment:
                TOX_ENV: py27
+  deploy:
+    machine: true
+    steps:
+      - checkout
       - run:
           name: push image
           command: |
@@ -31,3 +35,16 @@ jobs:
             sh +x -c 'echo $QUAY_TOKEN' | docker login -u=$QUAY_USERNAME --password-stdin quay.io
             docker tag galaxy-docker/test quay.io/bgruening/galaxy-rna-seq:circle 
             docker push quay.io/bgruening/galaxy-rna-seq:circle
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+
