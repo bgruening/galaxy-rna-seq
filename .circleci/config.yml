@@ -5,7 +5,6 @@ jobs:
     working_directory: /app
     steps:
       - checkout
-      - setup_remote_docker
       - restore_cache:
           keys:
             - v1-{{ .Branch }}
