@@ -27,7 +27,7 @@ jobs:
           name: Save Docker image layer cache
           command: |
             mkdir -p /tmp/caches
-            docker save -o /tmp/caches/app.tar /tmp/app
+            docker save -o /tmp/caches/app.tar galaxy-docker/test
       - save_cache:
           key: v1-{{ .Branch }}-{{ epoch }}
           paths:
