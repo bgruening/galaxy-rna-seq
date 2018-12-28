@@ -1,7 +1,7 @@
 version: 2
 jobs:
+  machine: true
   build:
-    machine: true
     steps:
       - checkout
       - run:
@@ -12,6 +12,9 @@ jobs:
                make docker_build
                make docker_run
                sleep 60
+  test:
+    steps:
+      - checkout
       - run:
           name: Install test environment
           command: |
@@ -35,12 +38,7 @@ jobs:
             fi
 workflows:
   version: 2
-  tagged-build:
+  build_and_test:
     jobs:
-      - build:
-          filters:
-            branches:
-              only: /.*/
-            tags:
-              only: /.*/
-
+      - build
+      - test
