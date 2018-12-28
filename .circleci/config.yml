@@ -12,6 +12,7 @@ jobs:
             - /tmp/caches/app.tar
       - run:
           name: Load Docker image layer cache
+          no_output_timeout: 1200
           command: |
             set +o pipefail
             docker load -i /tmp/caches/app.tar | true
