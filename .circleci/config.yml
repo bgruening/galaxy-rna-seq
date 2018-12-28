@@ -1,34 +1,57 @@
 version: 2
 jobs:
-  machine: true
   build:
+    working_directory: /app
+    docker:
+      - image: docker:17.05.0-ce-git
     steps:
       - checkout
+      - setup_remote_docker
       - run:
-          name: Compile Docker image
+          name: Install dependencies
+          command: |
+            apk add --no-cache \
+              py-pip=9.0.0-r1
+            pip install \
+              awscli==1.11.76
+      - restore_cache:
+          keys:
+            - v1-{{ .Branch }}
+          paths:
+            - /caches/app.tar
+      - run:
+          name: Load Docker image layer cache
+          command: |
+            set +o pipefail
+            docker load -i /caches/app.tar | true
+      - run:
+          name: Build application Docker image
           command: |
                wget https://raw.githubusercontent.com/galaxyproject/galaxy-flavor-testing/master/Makefile
                make docker_install
                make docker_build
                make docker_run
                sleep 60
-  test:
-    steps:
-      - checkout
       - run:
-          name: Install test environment
+          name: Save Docker image layer cache
+          command: |
+            mkdir -p /caches
+            docker save -o /caches/app.tar app
+      - save_cache:
+          key: v1-{{ .Branch }}-{{ epoch }}
+          paths:
+            - /caches/app.tar
+      - run:
+          name: Run tests
           command: |
                make install
-      - run:
-          name: Run tests 
-          command: |   
                make test_api
                make test_ftp
                make test_bioblend
           environment:
                TOX_ENV: py27
-      - run:
-          name: push image
+      - deploy:
+          name: Push application Docker image
           command: |
             set -x
             if [ -z "$CIRCLE_TAG" ] && [ "$CIRCLE_BRANCH" = master ]; then
@@ -36,9 +59,3 @@ jobs:
                 docker tag galaxy-docker/test quay.io/bgruening/galaxy-rna-seq:${CIRCLE_TAG:-$CIRCLE_BRANCH}
                 docker push quay.io/bgruening/galaxy-rna-seq:${CIRCLE_TAG:-$CIRCLE_BRANCH}
             fi
-workflows:
-  version: 2
-  build_and_test:
-    jobs:
-      - build
-      - test
