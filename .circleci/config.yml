@@ -35,6 +35,8 @@ jobs:
       - run:
           name: Run tests
           command: |
+               sudo apt-get update
+               sudo apt-get install python-dev
                make install
                make test_api
                make test_ftp
