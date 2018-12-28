@@ -10,10 +10,8 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            apk add --no-cache \
-              py-pip=9.0.0-r1
-            pip install \
-              awscli==1.11.76
+            apk add --no-cache --update \
+              py-pip wget ca-certificates
       - restore_cache:
           keys:
             - v1-{{ .Branch }}
